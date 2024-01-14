@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: model-trainer
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: model-trainer
+  template:
+    metadata:
+      labels:
+        app: model-trainer
+    spec:
+      containers:
+        - name: model-trainer
+          image: localhost:5001/model-trainer:latest
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 8081

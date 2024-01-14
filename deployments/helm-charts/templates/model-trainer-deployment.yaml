@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.modelTrainer.name }}
+spec:
+  replicas: {{ .Values.trainingScheduler.replicas }}
+  selector:
+    matchLabels:
+      app: {{ .Values.modelTrainer.name }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.modelTrainer.name }}
+    spec:
+      containers:
+        - name: {{ .Values.modelTrainer.containerName }}
+          image: {{ .Values.modelTrainer.image }}
+          imagePullPolicy: Never
+          ports:
+            - containerPort: {{ .Values.modelTrainer.containerPort }}

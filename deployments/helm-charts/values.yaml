@@ -38,5 +38,13 @@ trainingScheduler:
   image: localhost:5001/training-scheduler:latest
   containerPort: 8081
 
+modelTrainer:
+    name: model-trainer
+    replicas: 1
+    imagePullPolicy: Never
+    containerName: model-trainer
+    image: localhost:5001/model-trainer:latest
+    containerPort: 8081
+
 service:
   port: 80
