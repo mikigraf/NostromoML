@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: image-uploader
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: image-uploader
+  template:
+    metadata:
+      labels:
+        app: image-uploader
+    spec:
+      containers:
+        - name: image-uploader
+          image: localhost:5001/model-trainer:latest
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 8080

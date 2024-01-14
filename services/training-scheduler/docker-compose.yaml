@@ -1,0 +1,7 @@
+version: '3'
+services:
+  training-scheduler:
+    build: .
+    image: training-scheduler:latest
+    ports:
+      - "8083:8083"

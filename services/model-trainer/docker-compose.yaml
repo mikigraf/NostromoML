@@ -1,0 +1,7 @@
+version: '3'
+services:
+  model-trainer:
+    build: .
+    image: model-trainer:latest
+    ports:
+      - "8081:8081"

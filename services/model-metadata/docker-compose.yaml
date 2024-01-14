@@ -1,0 +1,7 @@
+version: '3'
+services:
+  model-metadata:
+    build: .
+    image: model-metadata:latest
+    ports:
+      - "8083:8083"

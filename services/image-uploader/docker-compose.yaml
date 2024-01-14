@@ -1,0 +1,7 @@
+version: '3'
+services:
+  image-uploader:
+    build: .
+    image: image-uploader:latest
+    ports:
+      - "8080:8080"

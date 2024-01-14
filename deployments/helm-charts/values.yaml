@@ -1,0 +1,42 @@
+apiGateway:
+  name: api-gateway
+  replicas: 1
+  repository: kind-registry
+  containerName: api-gateway
+  image: localhost:5001/api-gateway:latest
+  containerPort: 8085
+
+imageUploader:
+  name: image-uploader
+  replicas: 1
+  imagePullPolicy: Never
+  containerName: image-uploader
+  image: localhost:5001/model-trainer:latest
+  containerPort: 8080
+
+inference:
+  name: inference
+  replicas: 1
+  imagePullPolicy: Never
+  containerName: inference
+  image: localhost:5001/inference:latest
+  containerPort: 8084
+
+modelMetadata:
+  name: model-metadata
+  replicas: 1
+  imagePullPolicy: Never
+  containerName: model-metadata
+  image: localhost:5001/model-metadata:latest
+  containerPort: 8083
+
+trainingScheduler:
+  name: training-scheduler
+  replicas: 1
+  imagePullPolicy: Never
+  containerName: training-scheduler
+  image: localhost:5001/training-scheduler:latest
+  containerPort: 8081
+
+service:
+  port: 80

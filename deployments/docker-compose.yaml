@@ -1,0 +1,31 @@
+version: '3'
+services:
+  api-gateway:
+    build:
+      context: ../services/api-gateway
+    ports:
+      - "8085:8085"
+
+  image-uploader:
+    build:
+      context: ../services/image-uploader
+    ports:
+      - "8080:8080"
+
+  inference:
+    build:
+      context: ../services/inference
+    ports:
+      - "8084:8084"
+
+  model-metadata:
+    build:
+      context: ../services/model-metadata
+    ports:
+      - "8083:8083"
+
+  training-scheduler:
+    build:
+      context: ../services/training-scheduler
+    ports:
+      - "8081:8081"

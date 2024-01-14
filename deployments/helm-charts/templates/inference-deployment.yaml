@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.inference.name }}
+spec:
+  replicas: {{ .Values.inference.replicas }}
+  selector:
+    matchLabels:
+      app: {{ .Values.inference.name }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.inference.name }}
+    spec:
+      containers:
+        - name: {{ .Values.inference.containerName }}
+          image: {{ .Values.inference.image }}
+          imagePullPolicy: Never
+          ports:
+            - containerPort: {{ .Values.inference.containerPort }}
