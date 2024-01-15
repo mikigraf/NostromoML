@@ -2,6 +2,8 @@
 # [WIP] NostromoML
 ## A self-hosted LLM fine-tuninig platform
 
+NostromoML is a self-hosted platform for fine-tuning existing Large-Language-Models (LLMs) with private data and exposing them for inference.
+
 ### Getting started
 
 ```bash
