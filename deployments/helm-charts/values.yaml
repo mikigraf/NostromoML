@@ -7,10 +7,10 @@ apiGateway:
   containerPort: 8085
 
 imageUploader:
-  name: image-uploader
+  name: data-uploader
   replicas: 1
   imagePullPolicy: Never
-  containerName: image-uploader
+  containerName: data-uploader
   image: localhost:5001/model-trainer:latest
   containerPort: 8080
 
@@ -45,6 +45,19 @@ modelTrainer:
     containerName: model-trainer
     image: localhost:5001/model-trainer:latest
     containerPort: 8081
+
+zookeeper:
+  name: zookeeper
+  containerName: zookeeper
+  image: wurstmeister/zookeeper
+  containerPort: 2181
+  replicas: 1
+
+kafka:
+  name: kafka
+  containerName: kafka
+  image: wurstmeister/kafka
+  replicas: 1
 
 service:
   port: 80

@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.zookeeper.name }}
+spec:
+  replicas: {{ .Values.zookeeper.replicas }}
+  selector:
+    matchLabels:
+      app: {{ .Values.zookeeper.name }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.zookeeper.name }}
+    spec:
+      containers:
+        - name: {{ .Values.zookeeper.containerName }}
+          image: {{ .Values.zookeeper.image }}
+          ports:
+            - containerPort: {{ .Values.zookeeper.containerPort }}
