@@ -13,7 +13,7 @@ spec:
         app: image-uploader
     spec:
       containers:
-        - name: image-uploader
+        - name: data-uploader
           image: localhost:5001/model-trainer:latest
           imagePullPolicy: Never
           ports:

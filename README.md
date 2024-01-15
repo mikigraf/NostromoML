@@ -1,7 +1,8 @@
 
+# [WIP] NostromoML
+## A self-hosted LLM fine-tuninig platform
 
-
-# Getting started
+### Getting started
 
 ```bash
 ./scripts/00-kind-local-registry.sh
